@@ -5,12 +5,6 @@ defmodule Cards do
 
   @doc """
   Creates a list representing a deck of cards and returns it.
-
-  ## Examples
-
-      iex> Cards.create_deck()
-      ["A of Clubs", "2 of Clubs", "3 of Clubs", ..., "A of Dimonds", ...]
-
   """
   def create_deck do
     values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
@@ -22,14 +16,8 @@ defmodule Cards do
   end
 
   @doc """
-  Shuffle a deck of cards.
-  Function has an arity (number of arguments) of 1
-
-  ## Examples
-
-      iex> Cards.shuffle(["Ace of Clubs", "2 of Clubs", ..., "A of Hearts", ...])
-      ["7 of Spade", "A of Diamonds", "K of Hearts", ...]
-
+    Shuffle a deck of cards.
+    Function has an arity (number of arguments) of 1
   """
   def shuffle(deck) do
     Enum.shuffle(deck)
@@ -41,7 +29,7 @@ defmodule Cards do
   ## Examples
 
       iex> Cards.contains?(["A of Clubs, 2 of Clubs"], "A of Spades")
-      true
+      false
 
   """
   def contains?(deck, card) do
@@ -55,7 +43,7 @@ defmodule Cards do
 
   ## Examples
 
-      iex> { hand, rest_of_deck } =  Cards.deal(deck, 1)
+      iex> { hand, _rest_of_deck } =  Cards.deal(["A of Clubs", "2 of Clubs", "A of Hearts"], 1)
       iex> hand
       ["A of Clubs"]
 
