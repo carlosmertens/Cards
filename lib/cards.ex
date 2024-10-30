@@ -4,7 +4,7 @@ defmodule Cards do
   """
 
   @doc """
-  Create a deck of cards.
+  Creates a list representing a deck of cards and returns it.
 
   ## Examples
 
@@ -40,19 +40,25 @@ defmodule Cards do
 
   ## Examples
 
-    iex> Cards.contains?(["A of Clubs, 2 of Clubs"], "A of Spades")
-    true
+      iex> Cards.contains?(["A of Clubs, 2 of Clubs"], "A of Spades")
+      true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
 
   @doc """
-  Deal a hand of cards from a deck. Returns a tuple with the hand requested and the rest of the deck.
+  Deals a hand of cards from a deck. Returns a tuple with the hand requested and the rest of the deck.
 
-  ## Examples using pattern matching
+  The `hand_size` argument indicates how many cards should be in the hand.
 
-    iex> { hand, rest_of_deck } =  Cards.deal(deck, 5)
+  ## Examples
+
+      iex> { hand, rest_of_deck } =  Cards.deal(deck, 1)
+      iex> hand
+      ["A of Clubs"]
+
   """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
